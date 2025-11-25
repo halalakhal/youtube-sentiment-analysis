@@ -8,27 +8,18 @@ env/
 venv/
 ENV/
 .venv
-
 # Data
 data/raw/*.csv
 data/processed/*.csv
-*.joblib
-
 # Logs
 logs/*.log
-
 # IDE
 .vscode/
 .idea/
 *.swp
 *.swo
-
 # OS
 .DS_Store
 Thumbs.db
-
-# Models (si trop gros)
-models/*.joblib
-
 # Environment
 .env
