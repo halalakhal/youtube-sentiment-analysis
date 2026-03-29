@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Sentiment Analyzer</title>
+  <link rel="stylesheet" href="css/popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>í³Š Sentiment Analysis</h1>
+      <div class="controls">
+        <button id="themeToggle" class="icon-btn" title="Toggle dark mode">í¼“</button>
+      </div>
+    </header>
+
+    <div class="api-config">
+      <label for="apiUrl">API URL:</label>
+      <input 
+        type="text" 
+        id="apiUrl" 
+        placeholder="https://your-api.hf.space"
+        value="https://halalakhal-youtube-sentiment-api.hf.space"
+      >
+      <button id="saveApi" class="btn-small">Save</button>
+    </div>
+
+    <button id="analyzeBtn" class="btn-primary">
+      <span class="btn-text">Analyze Comments</span>
+    </button>
+
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <p>Analyzing comments...</p>
+    </div>
+
+    <div id="error" class="error hidden"></div>
+
+    <div id="statistics" class="statistics hidden">
+      <h2>í³ˆ Statistics</h2>
+      <div class="stats-grid">
+        <div class="stat-card positive">
+          <div class="stat-value" id="positiveCount">0</div>
+          <div class="stat-label">Positive</div>
+          <div class="stat-percentage" id="positivePercent">0%</div>
+        </div>
+        <div class="stat-card neutral">
+          <div class="stat-value" id="neutralCount">0</div>
+          <div class="stat-label">Neutral</div>
+          <div class="stat-percentage" id="neutralPercent">0%</div>
+        </div>
+        <div class="stat-card negative">
+          <div class="stat-value" id="negativeCount">0</div>
+          <div class="stat-label">Negative</div>
+          <div class="stat-percentage" id="negativePercent">0%</div>
+        </div>
+      </div>
+      <div class="total-info">
+        <span>Total: <strong id="totalCount">0</strong> comments</span>
+        <span>Avg Confidence: <strong id="avgConfidence">0%</strong></span>
+      </div>
+    </div>
+
+    <div id="filters" class="filters hidden">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="1">Positive</button>
+      <button class="filter-btn" data-filter="0">Neutral</button>
+      <button class="filter-btn" data-filter="-1">Negative</button>
+    </div>
+
+    <div id="results" class="results hidden"></div>
+
+    <div id="actions" class="actions hidden">
+      <button id="copyResults" class="btn-secondary">í³‹ Copy Results</button>
+      <button id="exportCSV" class="btn-secondary">í²¾ Export CSV</button>
+    </div>
+  </div>
+
+  <script src="js/popup.js"></script>
+</body>
+</html>
